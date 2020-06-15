@@ -1,12 +1,51 @@
+<!-- https://stackblitz.com/edit/angular-v6xwte?file=src%2Fapp%2Fapp.component.html -->
+
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="mat-toolbar header">    
+    
+  <!-- <span class="nav-tool-items"> -->
+    
+  <!-- <div fxShow="true" fxHide.gt-sm="true"> -->
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+  <!-- </div> -->
+  <!-- </span>      -->
+  <span>Portfolio</span>
+  <!-- <a mat-button class="" routerLink="/"> -->
+    <!-- <span>Portfolio</span> -->
+  <!-- </a> -->
+  <!-- <div>Portfolio</div>    -->
+
+  <span class="fill-space"></span>  
+  <div fxShow="true" fxHide.lt-md="true">
+      <a mat-button routerLink="/about">About me</a>
+      <a mat-button routerLink="/projects">Projects</a>
+      <a mat-button routerLink="/contact">Contact</a>
+      <!-- <a mat-button routerLink="/">Home</a>       -->
+    </div>
+  <span class="fill-space"></span>
+  <div>Sjoerd Brattinga</div>
+  <!-- <button mat-button routerLink="/">
+      <div>Sjoerd Brattinga</div>
+  </button> -->
+</mat-toolbar>
+
 
 
 <mat-sidenav-container>
   <!-- Sidenav -->
-  <mat-sidenav color="primary" #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
-    [fixedTopGap]>
-    <!-- <div class="profile-image">
-        <img src="../assets/sjoerd.png" class="img-fluid">
-    </div> -->
+  <mat-sidenav color="primary" 
+    #sidenav 
+    [mode]="isBiggerScreen() ? 'over' : 'side'" 
+    [(opened)]="opened"
+    [fixedBottomGap]
+
+    > 
+    <!-- [fixedInViewport]="true" -->
+    <!-- [fixedBottomGap] -->
+    
+
     <mat-nav-list>
       <div class="profile-image-container">
         <img src="../assets/sjoerd.png" class="profile-image">  
@@ -21,51 +60,19 @@
       <a routerLink='/contact' mat-list-item>
         <mat-icon>email</mat-icon> Contact Me
       </a>
-      <!-- <a mat-list-item>
-        <mat-icon>library_books</mat-icon> Typography
-      </a>
-      <a mat-list-item>
-        <mat-icon>location_on</mat-icon> Maps
-      </a>
-      <a mat-list-item>
-        <mat-icon>calendar_today</mat-icon> Calendar
-      </a> -->
     </mat-nav-list>
   </mat-sidenav>
 
   <!-- Main content -->
-  <mat-sidenav-content>
-    <!-- Toolbar -->
-    <mat-toolbar color="primary" class="header">  
-      <div>Sjoerd Brattinga</div>
-      <span class="fill-space"></span>
-      <span class="nav-tool-items">
-        <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
-      </span>  
-    </mat-toolbar>
-    <!-- Applying the mat-tyography class adds styles for native elements. -->
-    <section class="mat-typography title-group">
-      <span class="fill-space"></span>
-      <h1>Portfolio</h1>
-      <mat-divider></mat-divider>
-    </section>
-
+  <mat-sidenav-content>   
+<!-- 
+    <section class="container">
+      <section class="mat-typography title-group">
+        <h1>Portfolio</h1>
+        <mat-divider></mat-divider>
+      </section>        
+    </section> -->
     <router-outlet></router-outlet>
-
-    <!-- Angular material cards -->
-    <!-- <div class="productCards">
-      <mat-grid-list cols="4" rowHeight="200px">
-        <mat-grid-tile [colspan]="3" [rowspan]="1">1
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="2">2
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1">3
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="2" [rowspan]="1">4
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>-->
-
   </mat-sidenav-content>
-</mat-sidenav-container>
 
+</mat-sidenav-container>
